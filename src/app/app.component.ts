@@ -17,7 +17,7 @@ export class AppComponent {
   ) {
     this.initializeApp();
   }
-
+// https://ionicframework.com/docs/native/qr-scanner
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
