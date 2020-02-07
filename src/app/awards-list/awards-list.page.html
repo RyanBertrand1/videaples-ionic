@@ -5,12 +5,11 @@
 </ion-header>
 
 <ion-content>
-
     <ion-list>
-        <ion-item (click)="goToMoviesList()">
-            <ion-label>test</ion-label>
-            <ion-icon name="arrow-forward"></ion-icon>
-        </ion-item>
+        <div *ngFor="let item of items; let i = index" [attr.data-index]="i">
+            <ion-item color="{{colors[i%colors.length]}}" detail (click)="goToMoviesList(item)">
+                <ion-label>{{item}}</ion-label>
+            </ion-item>
+        </div>
     </ion-list>
-
 </ion-content>
