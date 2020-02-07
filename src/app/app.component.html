@@ -1,3 +1,20 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+    <ion-router-outlet></ion-router-outlet>
+    <ion-tabs>
+        <ion-tab-bar  color="dark" slot="bottom">
+            <ion-tab-button tab="awardList" (click)="changePage('/awards-list')">
+                <ion-label>Liste Prix</ion-label>
+                <ion-icon name="list"></ion-icon>
+            </ion-tab-button>
+            <ion-tab-button tab="home" (click)="changePage('/home')">
+                <ion-label>Home</ion-label>
+                <ion-icon name="home"></ion-icon>
+            </ion-tab-button>
+            <ion-tab-button tab="movie-list" (click)="changePage('movies-list')">
+                <ion-label>Projets</ion-label>
+                <ion-icon name="videocam"></ion-icon>
+            </ion-tab-button>
+        </ion-tab-bar>
+    </ion-tabs>
+
 </ion-app>
