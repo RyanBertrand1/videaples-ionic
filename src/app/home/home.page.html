@@ -1,5 +1,5 @@
 <ion-header>
-    <ion-toolbar color="dark">
+    <ion-toolbar color="dark" style="text-align: center">
         <ion-title>
             MULTI MEDI'ALPES
         </ion-title>
@@ -7,8 +7,10 @@
 </ion-header>
 
 <ion-content>
-    <div class="ion-padding">
+    <div class="ion-padding" style="margin-top:2em">
         <img src="../../assets/images/Logo-multimedialpes.png" alt="LOGO"/>
     </div>
-  <ion-button color="dark" expand="block">ACCEDER AUX CATEGORIES</ion-button>
+    <div style="margin:5em">
+        <ion-button color="dark" (click)="goToAwards()">ACCEDER AUX CATEGORIES</ion-button>
+    </div>
 </ion-content>
