@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {PrizeService} from '../../Service/prize.service';
+import {Awards} from '../awards';
 
 @Component({
     selector: 'app-awards-list',
@@ -7,16 +9,23 @@ import {Router} from '@angular/router';
     styleUrls: ['./awards-list.page.scss'],
 })
 export class AwardsListPage implements OnInit {
-    items = [];
-    colors = [ 'warning', 'danger', 'tertiary', 'success',  'primary', 'secondary'];
+    listAwardsInterface: Awards[] = [];
+    colors = ['warning', 'danger', 'tertiary', 'secondary', 'primary', 'success'];
 
-    constructor(private router: Router) {
-        for (let i = 1; i <= 10; i++) {
-            this.items.push('Prix du meilleur' + i.toString());
+    constructor(private router: Router, private awardsService: PrizeService) {
+        for (let i = 1; i < 8; i++) {
+            this.listAwardsInterface.push({
+                name: `Prix du meilleur ${i.toString()}`,
+                id: i
+            });
         }
     }
 
     ngOnInit() {
+        this.awardsService.get().subscribe(data => {
+            this.listAwardsInterface = data['hydra:member'];
+            console.log(data);
+        });
     }
 
     goToMoviesList(id) {

@@ -1,14 +1,20 @@
 <ion-header>
-    <ion-toolbar color="dark" style="text-align: center">
-        <ion-title>LISTE DES PRIX</ion-title>
+    <ion-toolbar color="dark">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/"></ion-back-button>
+        </ion-buttons>
+        <ion-title style="margin-left: 2em">LISTE DES PRIX</ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-list>
-        <div *ngFor="let item of items; let i = index" [attr.data-index]="i">
+    <div class="awardTxt">
+        <p>Prix Multi Médi'Alpes 2020</p>
+    </div>
+    <ion-list lines="none" class="awardsList" >
+        <div *ngFor="let item of listAwardsInterface; let i = index" [attr.data-index]="i" >
             <ion-item color="{{colors[i%colors.length]}}" detail (click)="goToMoviesList(item)">
-                <ion-label>{{item}}</ion-label>
+                <ion-label style="padding:0.5em">{{item.name}}</ion-label>
             </ion-item>
         </div>
     </ion-list>

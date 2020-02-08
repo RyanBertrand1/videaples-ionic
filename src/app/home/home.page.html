@@ -1,16 +1,19 @@
 <ion-header>
-    <ion-toolbar color="dark" style="text-align: center">
+    <ion-toolbar color="dark" class="homeTitle">
         <ion-title>
-            MULTI MEDI'ALPES
+            MULTI MÉDI'ALPES
         </ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <div class="ion-padding" style="margin-top:2em">
-        <img src="../../assets/images/Logo-multimedialpes.png" alt="LOGO"/>
+    <div class="ion-padding">
+        <img class="logo" src="../../assets/images/Logo-multimedialpes.png" alt="LOGO"/>
     </div>
-    <div style="margin:5em">
-        <ion-button color="dark" (click)="goToAwards()">ACCEDER AUX CATEGORIES</ion-button>
+    <div>
+        <p class="homeTxt">Festival Multi Médi'Alpes organisé par les étudiants du département MMI de l'IUT1 de Grenoble</p>
+    </div>
+    <div class="accessBtn">
+        <ion-button color="dark" (click)="goToAwards('/awards-list')">ACCÉDER AUX CATÉGORIES</ion-button>
     </div>
 </ion-content>
