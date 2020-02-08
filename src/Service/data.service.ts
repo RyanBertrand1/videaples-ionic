@@ -1,19 +1,20 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class DataService {
 
-  private paramsData: any;
+    private paramsData: any;
 
-  constructor() { }
+    constructor() {
+    }
 
-  setParams(data){
-    this.paramsData = data;
-  }
+    setParams(data) {
+        this.paramsData = data;
+    }
 
-  getParams(){
-    return this.paramsData
-  }
+    getParams() {
+        return this.paramsData
+    }
 }
