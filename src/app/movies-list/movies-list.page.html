@@ -8,9 +8,9 @@
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let project of projectInterface" size="6">
-        <ion-card>
+        <ion-card (click)='ChangeToMovieDetails("/details-movies",project)'>
           <img src="../../assets/images/Logo-multimedialpes.png" alt="LOGO"/>
-          <ion-card-content text-center>
+          <ion-card-content class="ion-text-center">
             <h1>{{project.title}}</h1>
           </ion-card-content>
         </ion-card>
