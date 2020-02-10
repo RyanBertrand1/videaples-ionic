@@ -1,9 +1,16 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>detailsMovies</ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="dark">
+        <ion-title>detailsMovies</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+    <ion-card>
+        <img src="../../assets/images/Logo-multimedialpes.png">
+        <ion-card-title class="ion-text-center">{{infoMovie['title']}}</ion-card-title>
+        <ion-card-subtitle class="ion-text-center">{{infoMovie['persons']}}</ion-card-subtitle>
+        <ion-card-content>
+            {{infoMovie['description']}}
+        </ion-card-content>
+    </ion-card>
 </ion-content>
