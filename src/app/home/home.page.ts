@@ -11,8 +11,8 @@ export class HomePage {
     constructor(private router: Router) {
     }
 
-    goToAwards() {
-        this.router.navigate(['/awards-list']);
+    goToAwards(pathName) {
+        this.router.navigate([pathName]);
 
     }
 
