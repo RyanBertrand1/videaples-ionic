@@ -13,12 +13,6 @@ export class AwardsListPage implements OnInit {
     colors = ['warning', 'danger', 'tertiary', 'secondary', 'primary', 'success'];
 
     constructor(private router: Router, private awardsService: PrizeService) {
-        for (let i = 1; i < 8; i++) {
-            this.listAwardsInterface.push({
-                name: `Prix du meilleur ${i.toString()}`,
-                id: i
-            });
-        }
     }
 
     ngOnInit() {
@@ -27,11 +21,4 @@ export class AwardsListPage implements OnInit {
             console.log(data);
         });
     }
-
-    goToMoviesList(id) {
-        console.log(id);
-        this.router.navigate(['/movies-list', {prixSelectionné: id}]);
-
-    }
-
 }
