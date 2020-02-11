@@ -13,7 +13,7 @@
     </div>
     <ion-list lines="none" class="awardsList" >
         <div *ngFor="let item of listAwardsInterface; let i = index" [attr.data-index]="i" >
-            <ion-item color="{{colors[i%colors.length]}}" detail (click)="goToMoviesList(item)">
+            <ion-item detail color="{{colors[i%colors.length]}}" [routerLink]="['/', 'movies-list', item.id]" >
                 <ion-label style="padding:0.5em">{{item.name}}</ion-label>
             </ion-item>
         </div>
