@@ -21,4 +21,8 @@ export class AwardsListPage implements OnInit {
             console.log(data);
         });
     }
+
+    goToProjectList(typeId, prizeId){
+        this.router.navigate(['/movies-list'], {queryParams: {typeId: typeId, prizeId: prizeId}})
+    }
 }

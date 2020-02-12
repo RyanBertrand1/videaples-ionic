@@ -14,6 +14,7 @@ export class MoviesListPage implements OnInit {
 
     projectInterface: ProjectInterface[] = [];
     typeID: string = '';
+    prizeID;
 
     constructor(private projectService: ProjetService, private router: Router, private data: DataService, private activatedRoute: ActivatedRoute) {
     }
@@ -22,8 +23,9 @@ export class MoviesListPage implements OnInit {
     }
 
     ionViewWillEnter() {
-        this.activatedRoute.paramMap.subscribe(params => {
-            this.typeID = params.get('id');
+        this.activatedRoute.queryParamMap.subscribe(params => {
+            this.typeID = params.get('typeId');
+            this.prizeID = params.get('prizeId');
         });
         if (this.typeID !== null) {
             this.projectService.getByType(this.typeID).subscribe(data => {
@@ -38,7 +40,8 @@ export class MoviesListPage implements OnInit {
 
     ChangeToMovieDetails(pathName: String, info: ProjectInterface) {
         this.data.setParams(info);
-        this.router.navigate([pathName]);
+        console.log(this.prizeID);
+        this.router.navigate([pathName], {queryParams: {prizeId: this.prizeID}});
     }
 
 }
