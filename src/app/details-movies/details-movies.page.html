@@ -13,4 +13,7 @@
             {{infoMovie['description']}}
         </ion-card-content>
     </ion-card>
+    <div style="display: flex; align-items: center; justify-content: center" *ngIf="prizeId">
+        <ion-button (click)="vote()">Voter pour ce projet</ion-button>
+    </div>
 </ion-content>
