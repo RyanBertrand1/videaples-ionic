@@ -23,8 +23,10 @@ export class MoviesListPage implements OnInit {
     }
 
     ionViewWillEnter() {
+        this.activatedRoute.paramMap.subscribe(res => {
+           this.typeID =res.get('id');
+        });
         this.activatedRoute.queryParamMap.subscribe(params => {
-            this.typeID = params.get('typeId');
             this.prizeID = params.get('prizeId');
         });
         if (this.typeID !== null) {

@@ -23,6 +23,6 @@ export class AwardsListPage implements OnInit {
     }
 
     goToProjectList(typeId, prizeId){
-        this.router.navigate(['/movies-list'], {queryParams: {typeId: typeId, prizeId: prizeId}})
+        this.router.navigate(['/movies-list', typeId], {queryParams: {prizeId: prizeId}})
     }
 }
