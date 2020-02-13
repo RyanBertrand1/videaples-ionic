@@ -25,8 +25,8 @@ export class DetailsMoviesPage implements OnInit {
 
     ionViewWillEnter() {
         this.router.queryParamMap.subscribe(params => {
-           this.prizeId = params.get('prizeId');
-           console.log(params);
+            this.prizeId = params.get('prizeId');
+            console.log(params);
         });
         this.infoMovie = this.data.getParams();
         console.log(this.infoMovie)
@@ -34,23 +34,22 @@ export class DetailsMoviesPage implements OnInit {
 
     vote() {
         this.barcodeScanner.scan().then(scanResult => {
-           if(scanResult) {
-               this.qrcodeService.getByUuid(scanResult.text).subscribe(res => {
-                  if(res) {
-                      const body = {
-                        projet: this.infoMovie['@id'],
-                        prize: '/api/prizes/' + this.prizeId
-                      };
+            if (scanResult) {
+                this.qrcodeService.getByUuid(scanResult.text).subscribe(res => {
+                    if (res) {
+                        const body = {
+                            projet: this.infoMovie['@id'],
+                            prize: '/api/prizes/' + this.prizeId
+                        };
 
-                      this.voteService.create(body).subscribe(res => {
-                          this.presentToast('Vote efféctué avec succès');
-                      });
-                  }
-                  else {
-                    this.presentToast('QR code Invalid');
-                  }
-               });
-           }
+                        this.voteService.create(body).subscribe(res => {
+                            this.presentToast('Vote efféctué avec succès');
+                        });
+                    } else {
+                        this.presentToast('QR code Invalid');
+                    }
+                });
+            }
         });
     }
 
