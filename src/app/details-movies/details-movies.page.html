@@ -1,19 +1,27 @@
 <ion-header>
-    <ion-toolbar color="dark">
-        <ion-title>detailsMovies</ion-title>
+    <ion-toolbar color="medium">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/movies-list"></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{infoMovie['title']}}</ion-title>
     </ion-toolbar>
 </ion-header>
 
-<ion-content>
-    <ion-card>
+<ion-content color="medium">
+    <ion-card color="light">
         <img src="../../assets/images/Logo-multimedialpes.png">
-        <ion-card-title class="ion-text-center">{{infoMovie['title']}}</ion-card-title>
-        <ion-card-subtitle class="ion-text-center">{{infoMovie['persons']}}</ion-card-subtitle>
-        <ion-card-content>
-            {{infoMovie['description']}}
-        </ion-card-content>
     </ion-card>
+<!--    <h3 class="ion-text-center txtProject">{{infoMovie['title']}}</h3>-->
+    <div class="ion-margin txtProject">
+        <p class="txt">Catégorie</p>
+        <p></p>
+        <br>
+        <p class="txt">Participants</p>
+        <h6 class="">{{infoMovie['persons']}}</h6>
+        <br>
+        <p>{{infoMovie['description']}}</p>
+    </div>
     <div style="display: flex; align-items: center; justify-content: center" *ngIf="prizeId">
-        <ion-button (click)="vote()">Voter pour ce projet</ion-button>
+        <ion-button color="light" (click)="vote()">Voter pour ce projet</ion-button>
     </div>
 </ion-content>
