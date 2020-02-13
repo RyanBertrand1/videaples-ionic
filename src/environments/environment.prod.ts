@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  url: '' //TODO URL prod
+  url: 'http://167.172.103.130:8000'
 };
