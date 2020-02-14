@@ -19,4 +19,12 @@ export class QrcodeService extends BaseService{
 
     return this.http.get(this.url + this.entityUrl + "/get_by_uuid", {params: params});
   }
+
+  addPrize(qrcodeId, prizeId) {
+    let params = new HttpParams();
+    params = params.set('prizeId', prizeId);
+    params = params.set('qrcodeId', qrcodeId);
+
+    return this.http.get(this.url + this.entityUrl + "/add_prize", {params: params});
+  }
 }
