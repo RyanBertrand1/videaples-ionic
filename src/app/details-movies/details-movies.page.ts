@@ -6,6 +6,7 @@ import {BarcodeScanner} from "@ionic-native/barcode-scanner/ngx";
 import {QrcodeService} from "../../Service/qrcode.service";
 import {ToastController} from "@ionic/angular";
 import {VoteService} from "../../Service/vote.service";
+import {environment} from "../../environments/environment";
 
 @Component({
     selector: 'app-details-movies',
@@ -16,7 +17,7 @@ export class DetailsMoviesPage implements OnInit {
 
     infoMovie: ProjectInterface;
     prizeId;
-
+    urlEnv = environment.url;
     constructor(private router: ActivatedRoute, private data: DataService, private barcodeScanner: BarcodeScanner, private qrcodeService: QrcodeService, private toastController: ToastController, private voteService: VoteService) {
     }
 
