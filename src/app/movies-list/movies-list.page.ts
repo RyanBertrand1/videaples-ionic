@@ -40,8 +40,9 @@ export class MoviesListPage implements OnInit {
                 this.projectInterface = data['hydra:member'];
             });
         } else {
-            this.projectService.get().subscribe(data => {
-                this.projectInterface = data['hydra:member'];
+            this.projectService.get().subscribe({
+                next: (res) => {this.projectInterface = res['hydra:member']; },
+                error: err => {this.presentToast(JSON.stringify(err)); }
             });
         }
     }

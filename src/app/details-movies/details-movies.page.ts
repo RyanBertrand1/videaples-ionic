@@ -70,7 +70,7 @@ export class DetailsMoviesPage implements OnInit {
                 }
             });
         }else {
-            this.presentToast('Les votessont fermés')
+            this.presentToast('Les votes sont fermés');
         }
     }
 
