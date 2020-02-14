@@ -3,14 +3,14 @@
         <ion-buttons slot="start" *ngIf="this.prizeID">
             <ion-back-button [defaultHref]="'/awards-list'"></ion-back-button>
         </ion-buttons>
-        <ion-title>Projets en compétition</ion-title>
+        <ion-title class="ion-text-center">Projets en compétition</ion-title>
     </ion-toolbar>
 </ion-header>
 <ion-content>
     <ion-grid>
         <ion-row>
             <ion-col *ngFor="let project of projectInterface" size="6">
-                <ion-card color="light" (click)='ChangeToMovieDetails("/details-movies",project)'>
+                <ion-card class="cardSize" color="light" (click)='ChangeToMovieDetails("/details-movies",project)'>
                     <img src="{{project.imgUrl ? urlEnv +'/'+ project.imgUrl : '../../assets/images/Logo-multimedialpes.png'}}" alt="LOGO"/>
                     <ion-card-content class="ion-text-center">
                         <h3>{{project.title}}</h3>
