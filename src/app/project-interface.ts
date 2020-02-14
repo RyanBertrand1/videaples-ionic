@@ -3,5 +3,6 @@ export interface ProjectInterface {
     title: string;
     description: string;
     persons: string;
-    type: any
+    type: any;
+    imgUrl: string;
 }
