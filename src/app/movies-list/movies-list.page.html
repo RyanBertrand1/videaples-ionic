@@ -8,7 +8,7 @@
         <ion-row>
             <ion-col *ngFor="let project of projectInterface" size="6">
                 <ion-card color="light" (click)='ChangeToMovieDetails("/details-movies",project)'>
-                    <img src="{{project.imgUrl ? urlEnv +'/'+ project.imgUrl : '../../assets/images/Logo-multimedialpes.png'}}" alt="LOGO"/>
+                    <img src="{{project.imgUrl ? urlEnvProd +'/images/'+ project.imgUrl : '../../assets/images/Logo-multimedialpes.png'}}" alt="LOGO"/>
                     <ion-card-content class="ion-text-center">
                         <h3>{{project.title}}</h3>
                     </ion-card-content>

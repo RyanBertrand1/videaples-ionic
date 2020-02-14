@@ -5,7 +5,7 @@ import {Router} from "@angular/router";
 import {DataService} from "../../Service/data.service";
 import {ActivatedRoute} from "@angular/router";
 import {NavController, ToastController} from "@ionic/angular";
-import {environment} from "../../environments/environment";
+import {environment} from "../../environments/environment.prod";
 
 @Component({
     selector: 'app-movies-list',
@@ -17,7 +17,7 @@ export class MoviesListPage implements OnInit {
     projectInterface: ProjectInterface[] = [];
     typeID: string = '';
     prizeID;
-    urlEnv = environment.url;
+    urlEnvProd = environment.url;
     constructor(private projectService: ProjetService, private router: Router, private data: DataService, private activatedRoute: ActivatedRoute, private toastController: ToastController) {
     }
 
