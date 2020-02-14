@@ -21,15 +21,22 @@ export class DetailsMoviesPage implements OnInit {
     }
 
     ngOnInit() {
+        this.init();
     }
 
     ionViewWillEnter() {
+        this.init();
+    }
+
+    init() {
         this.router.queryParamMap.subscribe(params => {
             this.prizeId = params.get('prizeId');
-            console.log(params);
         });
-        this.infoMovie = this.data.getParams();
-        console.log(this.infoMovie)
+        this.infoMovie = JSON.parse(sessionStorage.getItem('infoMovie'));
+    }
+
+    ionViewDidLeave() {
+        sessionStorage.removeItem('infoMovie');
     }
 
     vote() {

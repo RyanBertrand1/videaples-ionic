@@ -1,7 +1,7 @@
 <ion-header>
     <ion-toolbar color="medium">
         <ion-buttons slot="start">
-            <ion-back-button defaultHref="/movies-list"></ion-back-button>
+            <ion-back-button [defaultHref]="'/movies-list/' +  this.infoMovie.type.id + '?prizeId=' + this.prizeId"></ion-back-button>
         </ion-buttons>
         <ion-title>Projets</ion-title>
     </ion-toolbar>

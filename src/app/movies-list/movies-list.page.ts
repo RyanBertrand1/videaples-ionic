@@ -21,6 +21,10 @@ export class MoviesListPage implements OnInit {
     }
 
     ngOnInit() {
+        this.activatedRoute.queryParamMap.subscribe(params => {
+            this.prizeID = params.get('prizeId');
+            console.log('prizeID : ' + this.prizeID);
+        });
     }
 
     ionViewWillEnter() {
@@ -42,7 +46,7 @@ export class MoviesListPage implements OnInit {
     }
 
     ChangeToMovieDetails(pathName: String, info: ProjectInterface) {
-        this.data.setParams(info);
+        sessionStorage.setItem('infoMovie', JSON.stringify(info));
         console.log(this.prizeID);
         this.router.navigate([pathName], {queryParams: {prizeId: this.prizeID}});
     }
