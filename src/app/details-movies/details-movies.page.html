@@ -10,7 +10,7 @@
 
 <ion-content *ngIf="infoMovie">
     <ion-card color="light">
-        <img src="{{infoMovie.imgUrl ? urlEnv +'/'+ infoMovie.imgUrl : '../../assets/images/Logo-multimedialpes.png'}}">
+        <img src="{{infoMovie.imgUrl ? urlEnvProd +'/images/'+ infoMovie.imgUrl : '../../assets/images/Logo-multimedialpes.png'}}">
     </ion-card>
     <h3 class="ion-text-center txtProject">{{infoMovie['title']}}</h3>
     <div class="ion-margin txtProject">
