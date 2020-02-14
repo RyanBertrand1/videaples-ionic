@@ -7,19 +7,20 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content color="medium">
+<ion-content *ngIf="infoMovie">
     <ion-card color="light">
         <img src="../../assets/images/Logo-multimedialpes.png">
     </ion-card>
-<!--    <h3 class="ion-text-center txtProject">{{infoMovie['title']}}</h3>-->
+    <!--<h3 class="ion-text-center txtProject">{{infoMovie['title']}}</h3>-->
     <div class="ion-margin txtProject">
         <p class="txt">Catégorie</p>
+        <h6>{{infoMovie.type.title}}</h6>
         <p></p>
         <br>
         <p class="txt">Participants</p>
-        <h6 class="">{{infoMovie['persons']}}</h6>
+        <h6 class="">{{infoMovie.persons}}</h6>
         <br>
-        <p>{{infoMovie['description']}}</p>
+        <p>{{infoMovie.description}}</p>
     </div>
     <div style="display: flex; align-items: center; justify-content: center" *ngIf="prizeId">
         <ion-button color="light" (click)="vote()">Voter pour ce projet</ion-button>
