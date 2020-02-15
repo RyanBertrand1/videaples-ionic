@@ -2,7 +2,7 @@
     <ion-toolbar color="medium">
         <ion-buttons slot="start">
             <ion-back-button
-                    [defaultHref]="'/movies-list/' +  this.infoMovie.type.id + '?prizeId=' + this.prizeId"></ion-back-button>
+                    [defaultHref]="'/movies-list/' +  this.infoMovie.type.id + '?prizeId=' + this.prizeId + '&display=' + this.display"></ion-back-button>
         </ion-buttons>
         <ion-title>Projets</ion-title>
     </ion-toolbar>
@@ -24,6 +24,6 @@
         <p>{{infoMovie.description}}</p>
     </div>
 </ion-content>
-<ion-footer *ngIf="prizeId">
+<ion-footer *ngIf="prizeId && display !== 'all'">
     <ion-button color="warning" expand="full" class="btnVote" (click)="vote()">Voter pour ce projet</ion-button>
 </ion-footer>

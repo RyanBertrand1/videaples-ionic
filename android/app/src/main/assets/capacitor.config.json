@@ -5,5 +5,16 @@
   "npmClient": "npm",
   "webDir": "www",
   "cordova": {},
-  "linuxAndroidStudioPath": "/snap/android-studio/81/android-studio/bin/studio.sh"
+  "linuxAndroidStudioPath": "/snap/android-studio/81/android-studio/bin/studio.sh",
+  "SplashScreen": {
+    "launchShowDuration": 3000,
+    "launchAutoHide": true,
+    "backgroundColor": "#ffffffff",
+    "androidSplashResourceName": "splash",
+    "androidScaleType": "CENTER_CROP",
+    "androidSpinnerStyle": "large",
+    "iosSpinnerStyle": "small",
+    "spinnerColor": "#999999",
+    "showSpinner": true
+  }
 }

@@ -22,10 +22,7 @@ export class AppComponent {
 
 // https://ionicframework.com/docs/native/qr-scanner
     initializeApp() {
-        this.platform.ready().then(() => {
-            this.statusBar.styleDefault();
-            this.splashScreen.hide();
-        });
+        this.splashScreen.hide();
     }
 
     changePage(pathName: string) {

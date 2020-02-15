@@ -18,39 +18,42 @@ export class MoviesListPage implements OnInit {
     typeID: string = '';
     prizeID;
     urlEnvProd= environment.url;
+    display;
     constructor(private projectService: ProjetService, private router: Router, private data: DataService, private activatedRoute: ActivatedRoute, private toastController: ToastController) {
     }
 
     ngOnInit() {
         this.activatedRoute.queryParamMap.subscribe(params => {
             this.prizeID = params.get('prizeId');
-            console.log('prizeID : ' + this.prizeID);
+            this.display = params.get('display');
         });
     }
 
     ionViewWillEnter() {
         this.activatedRoute.paramMap.subscribe(res => {
-           this.typeID =res.get('id');
+           this.typeID = res.get('id');
         });
         this.activatedRoute.queryParamMap.subscribe(params => {
             this.prizeID = params.get('prizeId');
+            this.display = params.get('display');
         });
-        if (this.typeID !== null) {
+        if (this.typeID !== null && this.display !== 'all') {
             this.projectService.getByType(this.typeID).subscribe(data => {
                 this.projectInterface = data['hydra:member'];
             });
+            this.display = 'type';
         } else {
             this.projectService.get().subscribe({
                 next: (res) => {this.projectInterface = res['hydra:member']; },
                 error: err => {this.presentToast(JSON.stringify(err)); }
             });
+            this.display = 'all';
         }
     }
 
     ChangeToMovieDetails(pathName: String, info: ProjectInterface) {
         sessionStorage.setItem('infoMovie', JSON.stringify(info));
-        console.log(this.prizeID);
-        this.router.navigate([pathName], {queryParams: {prizeId: this.prizeID}});
+        this.router.navigate([pathName], {queryParams: {prizeId: this.prizeID, display: this.display}});
     }
 
     async presentToast(message) {

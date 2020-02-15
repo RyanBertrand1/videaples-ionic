@@ -20,6 +20,7 @@ export class DetailsMoviesPage implements OnInit {
     prizeId;
     urlEnvProd = environment.url;
     launch;
+    display;
     constructor(private router: ActivatedRoute, private data: DataService, private barcodeScanner: BarcodeScanner, private qrcodeService: QrcodeService, private toastController: ToastController, private voteService: VoteService, private launchService: LaunchService) {
     }
 
@@ -32,11 +33,14 @@ export class DetailsMoviesPage implements OnInit {
 
     ionViewWillEnter() {
         this.init();
+        console.log(this.prizeId);
+        console.log(this.display);
     }
 
     init() {
         this.router.queryParamMap.subscribe(params => {
             this.prizeId = params.get('prizeId');
+            this.display = params.get('display');
         });
         this.infoMovie = JSON.parse(sessionStorage.getItem('infoMovie'));
     }
