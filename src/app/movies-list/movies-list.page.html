@@ -3,7 +3,7 @@
         <ion-buttons slot="start" *ngIf="this.prizeID && this.display === 'type'">
             <ion-back-button [defaultHref]="'/awards-list'"></ion-back-button>
         </ion-buttons>
-        <ion-title class="ion-text-center">{{prizeID && prizeID !== 'null' ? 'Projets en compétition' : 'Tout les projets'}}</ion-title>
+        <ion-title class="ion-text-center">{{prizeID && prizeID !== 'null' ? 'Projets en compétition' : 'Tous les projets'}}</ion-title>
     </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -20,7 +20,7 @@
         </ion-row>
     </ion-grid>-->
 
-    <div style="display: flex; flex-wrap: wrap; justify-content: flex-start">
+    <div style="display: flex; flex-wrap: wrap; justify-content: center">
         <ion-card *ngFor="let project of projectInterface" class="cardSize" style="display: flex; flex-direction: column; justify-content: space-between" color="light" (click)='ChangeToMovieDetails("/details-movies",project)'>
             <img src="{{project.imgUrl ? urlEnvProd +'/images/'+ project.imgUrl : '../../assets/images/Logo-multimedialpes.png'}}" alt="LOGO" style="max-width: 100%; height: auto;"/>
             <ion-card-content class="ion-text-center">
