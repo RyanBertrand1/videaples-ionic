@@ -19,15 +19,11 @@ export class DetailsMoviesPage implements OnInit {
     infoMovie: ProjectInterface;
     prizeId;
     urlEnvProd = environment.url;
-    launch;
     display;
     constructor(private router: ActivatedRoute, private data: DataService, private barcodeScanner: BarcodeScanner, private qrcodeService: QrcodeService, private toastController: ToastController, private voteService: VoteService, private launchService: LaunchService) {
     }
 
     ngOnInit() {
-        this.launchService.get().subscribe(res => {
-           this.launch = res;
-        });
         this.init();
     }
 
@@ -50,34 +46,36 @@ export class DetailsMoviesPage implements OnInit {
     }
 
     vote() {
-        if (this.launch.authorization) {
-            this.barcodeScanner.scan().then(scanResult => {
-                if (scanResult) {
-                    this.qrcodeService.getByUuid(scanResult.text).subscribe(res => {
-                        if (res) {
-                            if (!res.prizes.includes('/api/prizes/' + this.prizeId)) {
-                                const body = {
-                                    projet: this.infoMovie['@id'],
-                                    prize: '/api/prizes/' + this.prizeId
-                                };
+        this.launchService.get().subscribe(launch => {
+            if (launch.authorization) {
+                this.barcodeScanner.scan().then(scanResult => {
+                    if (scanResult) {
+                        this.qrcodeService.getByUuid(scanResult.text).subscribe(res => {
+                            if (res) {
+                                if (!res.prizes.includes('/api/prizes/' + this.prizeId)) {
+                                    const body = {
+                                        projet: this.infoMovie['@id'],
+                                        prize: '/api/prizes/' + this.prizeId
+                                    };
 
-                                this.voteService.create(body).subscribe(() => {
-                                    this.qrcodeService.addPrize(res.id, this.prizeId).subscribe(() => {
-                                        this.presentToast('Vote efféctué avec succès');
+                                    this.voteService.create(body).subscribe(() => {
+                                        this.qrcodeService.addPrize(res.id, this.prizeId).subscribe(() => {
+                                            this.presentToast('Vote efféctué avec succès');
+                                        });
                                     });
-                                });
+                                } else {
+                                    this.presentToast('Vous avez déjà voté pour ce prix');
+                                }
                             } else {
-                                this.presentToast('Vous avez déjà voté pour ce prix');
+                                this.presentToast('QR code Invalid');
                             }
-                        } else {
-                            this.presentToast('QR code Invalid');
-                        }
-                    });
-                }
-            });
-        } else {
-            this.presentToast('Les votes sont fermés');
-        }
+                        });
+                    }
+                });
+            } else {
+                this.presentToast('Les votes sont fermés');
+            }
+        });
     }
 
     async presentToast(message) {
